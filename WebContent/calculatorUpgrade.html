@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C05Border02.html</title>
+    <style>
+        /*공통속성*/
+        div div{
+            width: 400px; height: 400px;
+        }
+        .radius{
+            background-color: #DDDDDD;
+            /*
+            Box모델의 모서리를 둥글게 처리한다.
+            속성값의 순서는 좌상,우상,우하,좌하 즉, 시계방향으로
+            지정한다. 전체크기의 50%를 깎아내면 원을 만들 수 있다.
+            */
+            border-radius: 10px 10px 10px 10px;
+        }
+        .div1{
+            background-color: #70C838; 
+            border-radius: 10px 10px 10px 10px;
+            text-align: right;
+        }
+        .div2{
+            background-color: #7B7B7B; 
+            border-radius: 10px 10px 10px 10px;
+            text-align: center;
+        }
+        .div3{
+            background-color: #373737; 
+            border-radius: 10px 10px 10px 10px;
+            text-align: center;
+            font-weight: bold; color: #FAFAFA; font-size: 30px;
+                padding-top: 5px;
+        }
+        .div4{
+            background-color: #FA960A; 
+            border-radius: 10px 10px 10px 10px;
+            text-align: center; 
+            font-weight: bold; color: #FAFAFA; font-size: 30px;
+                padding-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h2>계산기</h2>
+
+    <div>
+        <div class="radius">
+            <div class="div1" style="position: absolute;
+                left: 12px; top: 80px; width: 370px; height: 65px;
+                font-size: 40px; font-weight: bold;
+                padding-right: 20px; padding-top: 15px;">
+                123+654
+            </div>
+            <div class="inline">
+                <div class="div2" style="position: absolute;
+                left: 12px; top: 170px; width: 190px; height: 47px;
+                font-weight: bold; color: #FAFAFA; font-size: 30px;
+                padding-top: 3px;">
+                BackSpace
+                </div>
+                <div class="div2" style="position: absolute;
+                left: 210px; top: 170px; width: 190px; height: 47px;
+                font-weight: bold; color: #FAFAFA; font-size: 30px;
+                padding-top: 3px;">
+                C
+                </div>
+                </div>
+            </div>
+            <div class="block">
+                <span class="div3" style="position: absolute;
+                left: 12px; top: 225px; width: 92px; height: 53px;">
+                1
+                <!-- <button>
+                    1
+                </button> -->
+                </span>
+                <span class="div3" style="position: absolute;
+                left: 12px; top: 287px; width: 92px; height: 53px;">
+                4
+                </span>
+                <span class="div3" style="position: absolute;
+                left: 12px; top: 350px; width: 92px; height: 53px;">
+                7
+                </span>
+                <span class="div3" style="position: absolute;
+                left: 12px; top: 410px; width: 92px; height: 53px;">
+                =
+                </span>
+            </div>
+            <div class="block">
+                <span class="div3" style="position: absolute;
+                left: 110px; top: 225px; width: 92px; height: 53px;">
+                2
+                </span>
+                <span class="div3" style="position: absolute;
+                left: 110px; top: 287px; width: 92px; height: 53px;">
+                5
+                </span>
+                <span class="div3" style="position: absolute;
+                left: 110px; top: 350px; width: 92px; height: 53px;">
+                8
+                </span>
+                <span class="div3" style="position: absolute;
+                left: 110px; top: 410px; width: 92px; height: 53px;">
+                0
+                </span>
+            </div>
+            <div class="block">
+                <span class="div3" style="position: absolute;
+                left: 212px; top: 225px; width: 92px; height: 53px;">
+                3
+                </span>
+                <span class="div3" style="position: absolute;
+                left: 212px; top: 287px; width: 92px; height: 53px;">
+                6
+                </span>
+                <span class="div3" style="position: absolute;
+                left: 212px; top: 350px; width: 92px; height: 53px;">
+                9
+                </span>
+                <span class="div3" style="position: absolute;
+                left: 212px; top: 410px; width: 92px; height: 53px;">
+                .
+                </span>
+            </div>
+            <div class="block">
+                <span class="div4" style="position: absolute;
+                left: 310px; top: 225px; width: 92px; height: 53px;">
+                /
+                </span>
+                <span class="div4" style="position: absolute;
+                left: 310px; top: 287px; width: 92px; height: 53px;">
+                x
+                </span>
+                <span class="div4" style="position: absolute;
+                left: 310px; top: 350px; width: 92px; height: 53px;">
+                +
+                </span>
+                <span class="div4" style="position: absolute;
+                left: 310px; top: 410px; width: 92px; height: 53px;">
+                -
+                </span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
