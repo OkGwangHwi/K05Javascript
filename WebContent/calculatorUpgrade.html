@@ -43,6 +43,17 @@
                 padding-top: 5px;
         }
     </style>
+    <script type="text/javascript">
+        /*
+        opener : 팝업창(자식창)을 띄워준 부모창으로 데이터를 보내거나
+            제어하고 싶을때 사용하는 속성이다.
+        */
+        function setNumber(Number){
+            //입력창으로 숫자를 전송
+            opener.document.getElementById("numbercode").value = Number;//숫자전송
+        }
+        
+    </script>
 </head>
 <body>
     <h2>계산기</h2>
@@ -74,9 +85,6 @@
                 <span class="div3" style="position: absolute;
                 left: 12px; top: 225px; width: 92px; height: 53px;">
                 1
-                <!-- <button>
-                    1
-                </button> -->
                 </span>
                 <span class="div3" style="position: absolute;
                 left: 12px; top: 287px; width: 92px; height: 53px;">
