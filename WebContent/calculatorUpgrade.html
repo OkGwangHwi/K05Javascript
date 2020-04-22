@@ -43,16 +43,25 @@
                 padding-top: 5px;
         }
     </style>
-    <script type="text/javascript">
-        /*
-        opener : 팝업창(자식창)을 띄워준 부모창으로 데이터를 보내거나
-            제어하고 싶을때 사용하는 속성이다.
-        */
-        function setNumber(Number){
-            //입력창으로 숫자를 전송
-            opener.document.getElementById("numbercode").value = Number;//숫자전송
+    <script>
+        function add(obj) {
+            var result = document.getElementById('result');
+
+            if(obj!='='){
+                result.value = result.value + obj;
+            }
+            else{
+                result.value = eval(result.value);
+            }
         }
-        
+
+        function reset(){
+            document.getElementById('result').value = "0";
+        }
+
+        function sub(){
+            
+        }
     </script>
 </head>
 <body>
@@ -64,7 +73,8 @@
                 left: 12px; top: 80px; width: 370px; height: 65px;
                 font-size: 40px; font-weight: bold;
                 padding-right: 20px; padding-top: 15px;">
-                123+654
+                <input type="text" id="result" value="0" style="background-color:#70C838;
+                font-size:30px; text-align:right; border:none;">
             </div>
             <div class="inline">
                 <div class="div2" style="position: absolute;
@@ -76,80 +86,96 @@
                 <div class="div2" style="position: absolute;
                 left: 210px; top: 170px; width: 190px; height: 47px;
                 font-weight: bold; color: #FAFAFA; font-size: 30px;
-                padding-top: 3px;">
+                padding-top: 3px;" onclick="reset()">
                 C
                 </div>
                 </div>
             </div>
             <div class="block">
                 <span class="div3" style="position: absolute;
-                left: 12px; top: 225px; width: 92px; height: 53px;">
+                left: 12px; top: 225px; width: 92px; height: 53px;"
+                onclick="add(1)">
                 1
                 </span>
                 <span class="div3" style="position: absolute;
-                left: 12px; top: 287px; width: 92px; height: 53px;">
+                left: 12px; top: 287px; width: 92px; height: 53px;"
+                onclick="add(4)">
                 4
                 </span>
                 <span class="div3" style="position: absolute;
-                left: 12px; top: 350px; width: 92px; height: 53px;">
+                left: 12px; top: 350px; width: 92px; height: 53px;"
+                onclick="add(7)">
                 7
                 </span>
                 <span class="div3" style="position: absolute;
-                left: 12px; top: 410px; width: 92px; height: 53px;">
+                left: 12px; top: 410px; width: 92px; height: 53px;"
+                onclick="add('=')">
                 =
                 </span>
             </div>
             <div class="block">
                 <span class="div3" style="position: absolute;
-                left: 110px; top: 225px; width: 92px; height: 53px;">
+                left: 110px; top: 225px; width: 92px; height: 53px;"
+                onclick="add(2)">
                 2
                 </span>
                 <span class="div3" style="position: absolute;
-                left: 110px; top: 287px; width: 92px; height: 53px;">
+                left: 110px; top: 287px; width: 92px; height: 53px;"
+                onclick="add(5)">
                 5
                 </span>
                 <span class="div3" style="position: absolute;
-                left: 110px; top: 350px; width: 92px; height: 53px;">
+                left: 110px; top: 350px; width: 92px; height: 53px;"
+                onclick="add(8)">
                 8
                 </span>
                 <span class="div3" style="position: absolute;
-                left: 110px; top: 410px; width: 92px; height: 53px;">
+                left: 110px; top: 410px; width: 92px; height: 53px;"
+                onclick="add(0)">
                 0
                 </span>
             </div>
             <div class="block">
                 <span class="div3" style="position: absolute;
-                left: 212px; top: 225px; width: 92px; height: 53px;">
+                left: 212px; top: 225px; width: 92px; height: 53px;"
+                onclick="add(3)">
                 3
                 </span>
                 <span class="div3" style="position: absolute;
-                left: 212px; top: 287px; width: 92px; height: 53px;">
+                left: 212px; top: 287px; width: 92px; height: 53px;"
+                onclick="add(6)">
                 6
                 </span>
                 <span class="div3" style="position: absolute;
-                left: 212px; top: 350px; width: 92px; height: 53px;">
+                left: 212px; top: 350px; width: 92px; height: 53px;"
+                onclick="add(9)">
                 9
                 </span>
                 <span class="div3" style="position: absolute;
-                left: 212px; top: 410px; width: 92px; height: 53px;">
+                left: 212px; top: 410px; width: 92px; height: 53px;"
+                onclick="add('.')">
                 .
                 </span>
             </div>
             <div class="block">
                 <span class="div4" style="position: absolute;
-                left: 310px; top: 225px; width: 92px; height: 53px;">
+                left: 310px; top: 225px; width: 92px; height: 53px;"
+                onclick="add('/')">
                 /
                 </span>
                 <span class="div4" style="position: absolute;
-                left: 310px; top: 287px; width: 92px; height: 53px;">
+                left: 310px; top: 287px; width: 92px; height: 53px;"
+                onclick="add('*')">
                 x
                 </span>
                 <span class="div4" style="position: absolute;
-                left: 310px; top: 350px; width: 92px; height: 53px;">
+                left: 310px; top: 350px; width: 92px; height: 53px;"
+                onclick="add('+')">
                 +
                 </span>
                 <span class="div4" style="position: absolute;
-                left: 310px; top: 410px; width: 92px; height: 53px;">
+                left: 310px; top: 410px; width: 92px; height: 53px;"
+                onclick="add('-')">
                 -
                 </span>
             </div>

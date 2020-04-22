@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J17CssControl.html</title>
+    <script>
+        var pTag,pSize;
+
+        window.onload = function(){
+            pTag = document.getElementById("article");
+            pSize = parseInt(pTag.style.fontSize);
+        }
+
+        function fnArticle(flag){
+            switch (flag) {
+                case "+":
+                    pSize += 10;
+                    pTag.style.fontSize = pSize+"px"
+                    break;
+                case "-":
+                    pSize -= 10;
+                    pTag.style.fontSize = pSize+"px"
+                    break;
+                case "R":
+                    pTag.style.color = "red"
+                    break;
+                case "G":
+                    pTag.style.color = "green"
+                    break;
+                case "B":
+                    pTag.style.color = "blue"
+                    break;
+                case "Bo":
+                    pTag.style.fontWeight = "bold"
+                    break;
+                case "No":
+                    pTag.style.fontWeight = "normal"
+                    break;
+                case "Ce":
+                    pTag.style.textAlign = "center"
+                    break;
+                case "Le":
+                    pTag.style.textAlign = "left";
+                    break;
+                default:
+                    pTag.style.color = "black";
+            }
+        }
+
+        /*
+        문제] 글꼴바꾸기 버튼을 계속 누를때마다 아래 5가지
+        폰트가 토글되어 적용될수 있도록 함수를 정의하시오.
+        글꼴 : Verdana, 굴림체, 휴먼옛체, 궁서, Impact
+        */
+
+        var fontToggle = 0; //폰트 토글을 위한 전역변수
+        function setFont(){
+            //문제에서 주어진 폰트를 배열로 선언
+            var fontArray = {'Verdana', '굴림체', '휴먼옛체', '궁서', 'Impact'};
+            //정수를 5로 나누면 나머지는 0~4까지 생성됨
+            var fontIndex = fontToggle%5;
+            //위에서 구한 수를 인덱스로 폰트 설정
+            pTag.style.fontFamily = fontArray[fontIndex];
+            //함수를 호출할때마다 1증가
+            fontToggle++;
+        }
+    </script>
+</head>
+<body>
+    <h2>자바스크립트로 CSS제어하기</h2>
+    <input type="button" value="글꼴바꾸기" onclick="setFont();"/>
+    <fieldset>
+        <legend>신문기사</legend>
+        <button onclick="fnArticle('+');">+</button>
+        <button onclick="fnArticle('-');">-</button>
+        <button onclick="fnArticle('R');">Red</button>
+        <button onclick="fnArticle('G');">Green</button>
+        <button onclick="fnArticle('B');">Blue</button>
+        <button onclick="fnArticle('');">Black</button>
+        <button onclick="fnArticle('Bo');">볼드체</button>
+        <button onclick="fnArticle('No');">보통체</button>
+        <button onclick="fnArticle('Ce');">가운데정렬</button>
+        <button onclick="fnArticle('Le');">좌측정렬</button>
+    </fieldset>
+    <p style="font-size:12px;" id="article">
+        오늘의 뉴스<br/>
+        (서울=연합뉴스) 최인영 기자 = 신종 코로나바이러스 감염증(코로나19) 환자 가운데 회복해서 항체가 생긴 사람 중 절반가량은 체내에 바이러스가 남아 있는 것으로 나타났다.
+
+        질병관리본부는 코로나19 감염 후 회복해 항체가 형성된 다음에도 바이러스가 검출되는지 분석하는 시험의 중간 결과를 22일 발표했다.
+
+        질본은 25명의 환자를 대상으로 분석한 결과 모두 감염 후 바이러스에 대항할 수 있는 '중화항체'가 형성된 것으로 확인했다.
+
+        그러나 이 가운데 12명(48%)은 중화항체가 형성됐어도 호흡기 검체 코로나19 바이러스 유전자 검사에서 양성 판정을 받았다.
+
+        정은경 중앙방역대책본부장(질병관리본부장)은 이날 방대본 정례브리핑에서 "환자에 따라 중화항체가 형성돼도 바이러스가 완전히 제거되지 않고 체내에 남아 있는 기간이 다를 수 있다고 추정하고 있다"고 밝혔다.
+
+        바이러스 유전자 양성으로 확인된 12명에 대해 추가로 바이러스 배양검사를 시행한 결과, 1차 검사에서는 '음성'이 나왔다.
+
+        정 본부장은 "이와 관련한 추가 연구를 진행하고 있다"고 밝혔다.
+    </p>
+</body>
+</html>
