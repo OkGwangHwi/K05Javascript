@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">		
+		var comImg ;
+
+		window.onload = function(){
+			comImg = document.getElementById("com");
+			userImg = document.getElementById("user");
+			result = document.getElementById("result");
+		}
+		
+		function gameStart(user){
+			//1~3사이의 난수 생성
+			var com = parseInt(Math.random()*3) + 1;
+
+			if(com==1) comImg.src = "../images/scissors.jpg";
+			if(com==2) comImg.src = "../images/rock.jpg";
+			if(com==3) comImg.src = "../images/paper.jpg";		
+
+			if(user==1) userImg.src = "../images/scissors.jpg";
+			if(user==2) userImg.src = "../images/rock.jpg";
+			if(user==3) userImg.src = "../images/paper.jpg";	
+			
+			//승부판단..
+			switch(user - com) {
+				case 0:
+					console.log("비겼습니다");
+					result.innerText = "비겼습니다";
+				break;
+				case 1: case -2:
+					console.log("이겼습니다");					
+					result.innerText = "이겼습니다";
+				break;
+				case -1: case 2:
+					console.log("졌습니다");
+					result.innerText = "졌습니다";
+				break;
+			}
+		}
+	</script>
+
+	<h2>가위바위보게임</h2>
+	<fieldset>
+		<table border=1 cellpadding=10>
+			<tr>
+				<td>컴퓨터</td>
+				<td>나</td>
+			</tr>
+			<tr>
+				<td><img src="../images/start.png" id="com" width="220" height="220" /></td>
+				<td><img src="../images/start.png" id="user" width="220" height="220" /></td>
+			</tr>
+			<tr>
+				<td colspan="2" id="result" style="font-size:2em;color:red;"></td>
+			</tr>
+		</table>
+		</div>
+		<button onclick="gameStart(1);">가위</button>
+		<button onclick="gameStart(2);">바위</button>
+		<button onclick="gameStart(3);">보</button>
+	</fieldset>
+</body>
+</html>

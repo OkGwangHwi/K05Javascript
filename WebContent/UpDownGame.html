@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    var gameImg;
+
+    window.onload = function(){
+			gameImg = document.getElementById("img");
+		}
+
+        var randomNum = parseInt((Math.random()*100)+1);
+        var count=0; //7번까지 카운트 셈
+        document.write(randomNum);
+
+        function updown(){
+            var user = document.getElementById("user");
+            
+
+            if(randomNum == user.value){
+                gameImg.src = "../images/answer.jpeg";
+            }
+            else if(randomNum > user.value){
+                document.write("up");
+                count++;
+            }
+            else if(randomNum < user.value){
+                document.write("down");
+                count++;
+            }
+
+            if(count > 7){
+                //카운트가 7번이 넘으면 게임을 다시시작.
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>업다운게임</h1>
+
+    <h2>1~100사이의 숫자를 입력하세요</h2>
+
+    <h2>시도횟수 : 0회</h2>
+    
+    <form name="frm2">
+        숫자입력 : <input type="text" id="user"  /> <!--입력창-->
+        <input type="button" value="확인" onclick="updown()"/>
+    </form>
+
+    <table>
+        <img src="./images/updowngame.jpg" id="img" alt="">
+    </table>
+</body>
+</html>
