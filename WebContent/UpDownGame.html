@@ -4,53 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script>
+    <script type="text/javascript">
     var gameImg;
-
+ 
     window.onload = function(){
-			gameImg = document.getElementById("img");
-		}
-
+            gameImg = document.getElementById("img");
+        }
+ 
         var randomNum = parseInt((Math.random()*100)+1);
         var count=0; //7번까지 카운트 셈
         document.write(randomNum);
-
+ 
         function updown(){
             var user = document.getElementById("user");
-            
-
+            var cnt = document.getElementById("cnt");
+ 
+            //1~100사이의 정수를 입력하지 않았을때 경고문구 뜨고 횟수처리 X
+            if(user.value < 1 || user.value > 100){
+			gameImg.src = "./images/error.jpg";
+                alert("1~100사이의 정수를 입력하세요.")
+                return;
+            }
+ 
+            //시도횟수 0을 없애고 카운트 1부터 시작하게해줌
+            cnt.value = "";
+ 
+            //정답을 맞췄을경우
             if(randomNum == user.value){
-                gameImg.src = "../images/answer.jpeg";
+                alert("정답입니다.")
+                gameImg.src = "./images/answer.jpeg";
             }
+            //Up일때
             else if(randomNum > user.value){
-                document.write("up");
+                gameImg.src = "./images/up.jpg";
                 count++;
+                cnt.value = count;
             }
+            //Down일때
             else if(randomNum < user.value){
-                document.write("down");
+                gameImg.src = "./images/down.jpg";
                 count++;
+                cnt.value = count;
             }
-
+ 
+            //7번의 기회에서 정답을 못맞췄을경우
             if(count > 7){
                 //카운트가 7번이 넘으면 게임을 다시시작.
+                alert("시도횟수가 초과되었습니다. 게임을 다시 시작합니다.")
+                //F5를 누른것과 동일. => 페이지에 대한 새로고침.
+                location.reload();
             }
         }
     </script>
 </head>
 <body>
     <h1>업다운게임</h1>
-
+ 
     <h2>1~100사이의 숫자를 입력하세요</h2>
-
-    <h2>시도횟수 : 0회</h2>
-    
-    <form name="frm2">
-        숫자입력 : <input type="text" id="user"  /> <!--입력창-->
-        <input type="button" value="확인" onclick="updown()"/>
-    </form>
-
+ 
+    <h2>시도횟수 : <input type="text" value="0" id="cnt" style="border: none; font-size: 25px; width: 30px;">회</h2>
     <table>
-        <img src="./images/updowngame.jpg" id="img" alt="">
+        <tr>
+            <td>숫자입력 : <input type="text" id="user"  /> <!--입력창-->
+                <input type="button" value="확인" onclick="updown()"/>
+            </td>
+        </tr>
+ 
+        <tr>
+            <td><img src="./images/updowngame.jpg" id="img" width="300px" height="300px"></td>
+        </tr>
     </table>
 </body>
 </html>
+
