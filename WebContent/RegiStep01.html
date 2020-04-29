@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RegiStep01.html</title>
+    <script>
+    function fnJuminFocus(obj){
+        //키보드를 눌렀다가 떼는순간 
+        var strLength = obj.value.length;
+        console.log("strLength",strLength);//잘 작동하는지 console창에서 확인
+
+        if(strLength >= 6){
+            //입려된 문자의 수가 6이되면 포커스를 이동.
+            document.getElementById("ju2").focus();
+        }
+    }
+
+    function commonFocusMove(obj,mLength,next_obj){
+        //DOM에 입력된 글자수를 가져온다.
+        var strLength = obj.value.length;
+        console.log("strLength",strLength);
+        //지정된 글자수가 되었을때 다음 항목으로 포커스를 이동시킨다.
+        if(strLength >= mLength){
+            document.getElementById(next_obj).focus();
+        }
+    }
+
+    // function login(fn){
+        
+    // }
+
+    function login(fn){
+        if(fn.ju1.value.length < 6){
+            alert("주민번호를 확인하세요.");
+            fn.ju1.focus();
+            return login();
+        }
+        if(fn.ju2.value.length < 7){
+            alert("주민번호를 확인하세요.");
+            fn.ju2.focus();
+            return login();
+        }
+        if(fn.name.value==""){
+            alert("이름을 입력하세요.");
+            fn.name.focus();
+            return login();
+        }
+
+        window.location.href="./RegiStep02.html";
+    }
+    </script>
+</head>
+<body>
+<form name="registFrm" onsubmit="return isValidate(this);">
+    <table border="1" cellspacing="0" cellpadding="5">
+        <tr>
+            <td>실명확인</td>
+        </tr>
+        <tr style="text-align:right;" >
+            <td>
+                <br>
+                주민번호 <input type="text" id="ju1" size="6" onkeyup="fnJuminFocus(this);">
+                -
+                <input type="text" id="ju2" size="7" onkeyup="commonFocusMove(this,7,'name');">
+                <br><br>
+                이 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;름 <input type="text" id="name">
+                <br><br>
+                <button style="background-color:white; border-color:black;" 
+                 onmouseover="this.style.backgroundColor='#e5e5e5';" 
+                 onmouseout="this.style.backgroundColor='white';"
+                 type="button" onclick="login(this.form);">다음</button>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
